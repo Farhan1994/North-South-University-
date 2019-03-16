@@ -11,7 +11,7 @@ package javagenerics;
  */
 public class GenericStack<Object>{
     private int top;
-    public GenericStack(){
+    public GenericStack(int size){
         
     }
     public void push(Object x)
@@ -20,6 +20,7 @@ public class GenericStack<Object>{
     }
     public Object pop()
     {
+        Object something = null;
         return something;
         
     }
