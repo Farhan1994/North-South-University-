@@ -9,24 +9,43 @@ package javagenerics;
  *
  * @author Yen
  */
-public class GenericStack<Object>{
+public class GenericStack<Obj extends Object>{
     private int top;
+    private int sizeOfStack;
+    private Obj[] arr;
+    
+
     public GenericStack(int size){
-        
+        this.sizeOfStack=size;
+        this.arr = (Obj[]) new Object[sizeOfStack];
+        this.top=-1;
     }
-    public void push(Object x)
+    public void push(Obj x)
     {
-        
+        if(this.isFull())
+        {
+            System.out.println("Stack full");
+        }
+        System.out.println("Object add:" +x);
+        this.arr[++top]=x;
     }
-    public Object pop()
+    public Obj pop()
     {
-        Object something = null;
-        return something;
+        if(this.isEmpty()){
+            System.out.println("Stack empty");
+        }
+        Obj x=this.arr[top--];
+        System.out.println("popped:"+x);
+        return x;
         
     }
     
     public boolean isEmpty() {
-        return (top == -1);
+        return (top==-1);
     }
+
+    private boolean isFull() {
+        return(top==sizeOfStack-1);
+        }
     
 }
